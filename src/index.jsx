@@ -6,6 +6,22 @@ import { VRButton, XR, Controllers } from '@react-three/xr'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
+function DotController({hand}) {
+    return(
+        <Controllers
+            hand={hand}
+        >
+
+        <mesh visible={false}/>
+        <mesh>
+            <sphereGeometry args={[0.01, 8, 8]} />
+            <meshBasicMaterial color="white" />
+        </mesh>
+
+        </Controllers>
+    )
+}
+
 function App(){
     return(
         <>
@@ -19,7 +35,8 @@ function App(){
                 position: [ - 4, 3, 6 ]
             }}>
                 <XR>
-                    <Controllers />
+                    <DotController hand="left" />
+                    <DotController hand="right" />
                     <Experience />
                 </XR>
             </Canvas>
