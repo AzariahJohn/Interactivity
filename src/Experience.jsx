@@ -17,11 +17,14 @@ export default function Experience()
         <directionalLight castShadow position={ [ 1, 2, 3 ] } intensity={ 1.5 } />
         <ambientLight intensity={ 0.5 } />
 
-        <Interactive onClick={() => {
+        <Interactive onSelect={() => {
             setCub(!cube)
             console.log("clicked")
         }}>
-            <mesh castShadow position-x={ - 2 }>
+            <mesh castShadow position-x={ - 2 } onClick={() => {
+                setCub(!cube)
+                console.log("clicked")
+            }}>
                 <sphereGeometry />
                 <meshStandardMaterial color="orange" />
             </mesh>
